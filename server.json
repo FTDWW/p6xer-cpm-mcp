@@ -1,0 +1,54 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.FTDWW/p6xer-cpm-mcp",
+  "title": "P6XER CPM MCP Server",
+  "description": "An MCP server for Primavera P6 XER files with CPM calculation and schedule editing.",
+  "websiteUrl": "https://github.com/FTDWW/p6xer-cpm-mcp",
+  "repository": {
+    "url": "https://github.com/FTDWW/p6xer-cpm-mcp",
+    "source": "github"
+  },
+  "version": "0.2.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "p6xer-cpm-mcp",
+      "version": "0.2.0",
+      "runtimeHint": "uvx",
+      "runtimeArguments": [
+        {
+          "type": "positional",
+          "value": "p6xer-cpm-mcp",
+          "valueHint": "command"
+        }
+      ],
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "P6XER_LLM_API_KEY",
+          "description": "Optional API key for the AI analysis tool.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true
+        },
+        {
+          "name": "P6XER_LLM_BASE_URL",
+          "description": "Optional OpenAI-compatible base URL (default https://api.deepseek.com/v1).",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false
+        },
+        {
+          "name": "P6XER_LLM_MODEL",
+          "description": "Optional model name (default deepseek-chat).",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}

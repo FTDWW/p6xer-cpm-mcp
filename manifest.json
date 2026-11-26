@@ -1,0 +1,199 @@
+{
+  "manifest_version": "0.4",
+  "name": "p6xer-cpm-mcp",
+  "display_name": "P6XER CPM — Primavera P6 Schedule Analyzer & CPM Engine",
+  "version": "0.2.0",
+  "description": "Parse, analyze, quality-check, edit, and recalculate Primavera P6 XER schedule files with a deterministic CPM engine and MCP tools.",
+  "author": {
+    "name": "FTDWW",
+    "url": "https://github.com/FTDWW"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FTDWW/p6xer-cpm-mcp.git"
+  },
+  "homepage": "https://github.com/FTDWW/p6xer-cpm-mcp",
+  "documentation": "https://github.com/FTDWW/p6xer-cpm-mcp#readme",
+  "support": "https://github.com/FTDWW/p6xer-cpm-mcp/issues",
+  "server": {
+    "type": "uv",
+    "entry_point": "src/p6xer_mcp_server/server.py"
+  },
+  "tools": [
+    {
+      "name": "parse_xer_file",
+      "description": "Parse a P6 XER file and return project list, activity counts, resources, and calendars"
+    },
+    {
+      "name": "get_project_activities",
+      "description": "Get activities filtered by project, status, or task type"
+    },
+    {
+      "name": "get_critical_path",
+      "description": "Find critical path activities with zero or negative total float"
+    },
+    {
+      "name": "analyze_resource_utilization",
+      "description": "Planned/actual hours and costs per resource with over-allocation flags"
+    },
+    {
+      "name": "check_schedule_quality",
+      "description": "DCMA-style schedule quality check: missing logic, long durations, high float"
+    },
+    {
+      "name": "get_resources",
+      "description": "List all resources, optionally filtered by type"
+    },
+    {
+      "name": "get_resource_assignments",
+      "description": "Resource-activity assignments with enriched names and costs"
+    },
+    {
+      "name": "get_wbs",
+      "description": "Work Breakdown Structure hierarchy"
+    },
+    {
+      "name": "get_relationships",
+      "description": "Predecessor/successor relationships enriched with task codes"
+    },
+    {
+      "name": "get_calendars",
+      "description": "Calendar definitions with hours-per-period data"
+    },
+    {
+      "name": "get_schedule_summary",
+      "description": "At-a-glance schedule stats, date range, and critical count"
+    },
+    {
+      "name": "get_earned_value",
+      "description": "EVM metrics: PV, EV, AC, CPI, SPI, EAC per project"
+    },
+    {
+      "name": "get_activity_detail",
+      "description": "Full detail for a single activity including predecessors, successors, and resources"
+    },
+    {
+      "name": "export_schedule_graph",
+      "description": "Export schedule as nodes/edges JSON with cycle detection"
+    },
+    {
+      "name": "open_schedule_workspace",
+      "description": "Open an XER into an editable in-memory workspace for CPM operations"
+    },
+    {
+      "name": "apply_schedule_operations",
+      "description": "Apply structured changes to a workspace"
+    },
+    {
+      "name": "recalculate_schedule",
+      "description": "Run a CPM forward/backward pass on a workspace"
+    },
+    {
+      "name": "preview_schedule_changes",
+      "description": "Compare recalculated dates against the original XER"
+    },
+    {
+      "name": "export_schedule_xer",
+      "description": "Export a workspace to a P6-compatible XER file"
+    },
+    {
+      "name": "validate_operations",
+      "description": "Pre-validate structured operations before applying them"
+    },
+    {
+      "name": "set_activity_duration",
+      "description": "Set the target duration of a single activity in hours"
+    },
+    {
+      "name": "set_activity_duration_days",
+      "description": "Set the target duration of a single activity in calendar days"
+    },
+    {
+      "name": "add_activity_predecessor",
+      "description": "Add or update a predecessor relationship"
+    },
+    {
+      "name": "remove_activity_predecessor",
+      "description": "Remove a predecessor relationship"
+    },
+    {
+      "name": "set_activity_constraint",
+      "description": "Set or remove a date constraint on an activity"
+    },
+    {
+      "name": "set_activity_status",
+      "description": "Set the status of an activity"
+    },
+    {
+      "name": "create_activity",
+      "description": "Create a new activity in the schedule"
+    },
+    {
+      "name": "clone_workspace",
+      "description": "Deep-copy a workspace in memory (no disk I/O)"
+    },
+    {
+      "name": "delete_activity",
+      "description": "Delete an activity from the schedule"
+    },
+    {
+      "name": "rename_activity",
+      "description": "Rename an activity"
+    },
+    {
+      "name": "get_milestones",
+      "description": "Return all milestone tasks sorted by early start"
+    },
+    {
+      "name": "close_workspace",
+      "description": "Close a workspace and free its memory"
+    },
+    {
+      "name": "list_workspaces",
+      "description": "List all open workspaces"
+    },
+    {
+      "name": "get_workspace_info",
+      "description": "Return metadata about a workspace"
+    },
+    {
+      "name": "get_activity_cpm_dates",
+      "description": "Get CPM dates (ES/EF/LS/LF/TF/FF) for a single activity"
+    },
+    {
+      "name": "list_activities_after_cpm",
+      "description": "List all activities with CPM dates, sorted and paginated"
+    },
+    {
+      "name": "run_cpm_diagnostics",
+      "description": "Run cycle, orphan, and CPM diagnostics on a workspace"
+    },
+    {
+      "name": "analyze_schedule_ai",
+      "description": "AI-powered schedule analysis via an OpenAI-compatible LLM"
+    }
+  ],
+  "keywords": [
+    "primavera",
+    "p6",
+    "xer",
+    "project-management",
+    "scheduling",
+    "construction",
+    "engineering",
+    "critical-path",
+    "cpm",
+    "dcma"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  }
+}

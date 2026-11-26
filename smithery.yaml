@@ -1,0 +1,41 @@
+# Smithery MCP Server Configuration
+# https://smithery.ai/docs/config
+
+name: p6xer-cpm-mcp
+displayName: "P6XER CPM - Primavera P6 Schedule Analyzer & CPM Engine"
+description: |
+  Parse, analyze, quality-check, edit, and recalculate Primavera P6 XER
+  schedule files with a deterministic CPM engine. 38 tools covering critical
+  path analysis, earned value, resource utilization, DCMA quality checks,
+  schedule editing, XER export, and optional AI-assisted analysis.
+
+version: "0.2.0"
+license: MIT
+homepage: https://github.com/FTDWW/p6xer-cpm-mcp
+repository: https://github.com/FTDWW/p6xer-cpm-mcp
+
+runtime: python
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: "uvx",
+      args: ["p6xer-cpm-mcp"],
+      env: {}
+    })
+
+tags:
+  - primavera
+  - p6
+  - xer
+  - project-management
+  - scheduling
+  - construction
+  - engineering
+  - critical-path
+  - cpm
+  - dcma
